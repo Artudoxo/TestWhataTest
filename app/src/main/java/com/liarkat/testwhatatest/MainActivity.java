@@ -41,11 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        eduser.setFocusable(false);
-    }
 
     public void Mostrar_dialogo(){
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
