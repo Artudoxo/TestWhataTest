@@ -42,9 +42,10 @@ public class MainActivity extends AppCompatActivity {
     public void Mostrar_dialogo(){
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
         dialogo.setTitle("Reglas a seguir");
+        dialogo.setIcon(android.R.drawable.ic_dialog_info);
         dialogo.setMessage("De acuerdo a la cantidad de preguntas acertadas se te sera evaluado. \n\na. 10 preguntas acertadas = ¡Que haces aqui nerd!" +
         "\n\nb. De 7 a 9 preguntas acertadas = !Hey, no se te da mal! \n\nc. De 4 a 6 preguntas acertadas = Mira... no quiero asustarte pero... estudia mas..."+
-                "\n\nd. De 1 a 3 preguntas acertadas = ¿De verdad asistias a clases?");
+                "\n\nd. De 1 a 3 preguntas acertadas = ¿De verdad asistias a clases?\n\n\n Toda puntuación alcanzada en esta App no sera publicada en ningun medio conocido, por favor, sientete libre de responder con confianza.");
         dialogo.setCancelable(true);
         dialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         dialogo.show();
     }
 
