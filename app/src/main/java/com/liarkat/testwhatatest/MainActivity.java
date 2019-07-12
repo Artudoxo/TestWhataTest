@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Empezar();
+                left(btnempezar);
             }
         });
 
@@ -78,5 +79,11 @@ public class MainActivity extends AppCompatActivity {
         Intent empezar = new Intent(this, Primerapregunta.class);
         empezar.putExtra("user", eduser.getText().toString());
         startActivity(empezar);
+    }
+
+    public void left(View button)
+    {
+        startActivity(new Intent(this, Primerapregunta.class));
+        overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }
 }
