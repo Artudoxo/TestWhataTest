@@ -16,7 +16,7 @@ public class SeptimaPregunta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_septima_pregunta);
-        r71 = findViewById(R.id.rq74);
+        r71 = findViewById(R.id.rq71);
         r72 = findViewById(R.id.rq72);
         r73 = findViewById(R.id.rq73);
         r74 = findViewById(R.id.rq74);

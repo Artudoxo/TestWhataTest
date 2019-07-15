@@ -16,7 +16,7 @@ public class SextaPregunta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sexta_pregunta);
-        r61 = findViewById(R.id.rq64);
+        r61 = findViewById(R.id.rq61);
         r62 = findViewById(R.id.rq62);
         r63 = findViewById(R.id.rq63);
         r64 = findViewById(R.id.rq64);

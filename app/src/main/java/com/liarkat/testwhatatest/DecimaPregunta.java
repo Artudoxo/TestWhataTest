@@ -16,7 +16,7 @@ public class DecimaPregunta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_decima_pregunta);
-        r101 = findViewById(R.id.rq104);
+        r101 = findViewById(R.id.rq101);
         r102 = findViewById(R.id.rq102);
         r103 = findViewById(R.id.rq103);
         r104 = findViewById(R.id.rq104);

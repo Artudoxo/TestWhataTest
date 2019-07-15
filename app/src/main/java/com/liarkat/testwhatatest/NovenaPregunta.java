@@ -16,7 +16,7 @@ public class NovenaPregunta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_novena_pregunta);
-        r91 = findViewById(R.id.rq94);
+        r91 = findViewById(R.id.rq91);
         r92 = findViewById(R.id.rq92);
         r93 = findViewById(R.id.rq93);
         r94 = findViewById(R.id.rq94);

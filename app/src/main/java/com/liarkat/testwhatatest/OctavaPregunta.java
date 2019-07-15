@@ -16,7 +16,7 @@ public class OctavaPregunta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_octava_pregunta);
-        r81 = findViewById(R.id.rq84);
+        r81 = findViewById(R.id.rq81);
         r82 = findViewById(R.id.rq82);
         r83 = findViewById(R.id.rq83);
         r84 = findViewById(R.id.rq84);
