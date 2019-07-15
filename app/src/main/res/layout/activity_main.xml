@@ -21,7 +21,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="Test... ¡What a Test!"
+        android:text="@string/test"
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"

@@ -8,38 +8,37 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.RadioButton;
 
-public class Primerapregunta extends AppCompatActivity {
-    RadioButton r11, r12, r13, r14;
-    public static int espera = 1000;
+public class TerceraPregunta extends AppCompatActivity {
+    RadioButton r31,r32,r33,r34;
+    public static int espera =1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_primerapregunta);
+        setContentView(R.layout.activity_tercera_pregunta);
+        r31 = findViewById(R.id.r31);
+        r32 = findViewById(R.id.r32);
+        r33 = findViewById(R.id.r33);
+        r34 = findViewById(R.id.r34);
 
-        r11 = findViewById(R.id.r11);
-        r12 = findViewById(R.id.r12);
-        r13 = findViewById(R.id.r13);
-        r14 = findViewById(R.id.r14);
-
-        r11.setOnClickListener(new View.OnClickListener() {
+        r31.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 esperar(espera);
             }
         });
-        r12.setOnClickListener(new View.OnClickListener() {
+        r32.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 esperar(espera);
             }
         });
-        r13.setOnClickListener(new View.OnClickListener() {
+        r33.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 esperar(espera);
             }
         });
-        r14.setOnClickListener(new View.OnClickListener() {
+        r34.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 esperar(espera);
@@ -47,10 +46,9 @@ public class Primerapregunta extends AppCompatActivity {
         });
     }
 
-    public void Segundapregunta1(){
-        Intent intent1 = new Intent(this, SegundaPregunta.class);
+    public void Cuartapregunta1(){
+        Intent intent1 = new Intent(this, CuartaPregunta.class);
         startActivity(intent1);
-
     }
 
     public void esperar(int milisegundos){
@@ -58,7 +56,7 @@ public class Primerapregunta extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-               Segundapregunta1();
+                Cuartapregunta1();
             }
         },milisegundos);
     }

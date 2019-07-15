@@ -4,12 +4,22 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/testimgicon"
+        android:icon="@drawable/ic_launcher_foreground"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/testimgicon"
+        android:roundIcon="@drawable/ic_launcher_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Primerapregunta"></activity>
+        <activity android:name=".Resultado"></activity>
+        <activity android:name=".DecimaPregunta" />
+        <activity android:name=".NovenaPregunta" />
+        <activity android:name=".OctavaPregunta" />
+        <activity android:name=".SeptimaPregunta" />
+        <activity android:name=".SextaPregunta" />
+        <activity android:name=".QuintaPregunta" />
+        <activity android:name=".CuartaPregunta" />
+        <activity android:name=".TerceraPregunta" />
+        <activity android:name=".SegundaPregunta" />
+        <activity android:name=".Primerapregunta" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
