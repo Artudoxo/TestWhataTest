@@ -20,7 +20,9 @@
         <activity android:name=".TerceraPregunta" />
         <activity android:name=".SegundaPregunta" />
         <activity android:name=".Primerapregunta" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:configChanges="screenSize|orientation"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

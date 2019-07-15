@@ -14,8 +14,8 @@ public class QuintaPregunta extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cuarta_pregunta);
-        r51 = findViewById(R.id.rq54);
+        setContentView(R.layout.activity_quinta_pregunta);
+        r51 = findViewById(R.id.rq51);
         r52 = findViewById(R.id.rq52);
         r53 = findViewById(R.id.rq53);
         r54 = findViewById(R.id.rq54);
@@ -47,7 +47,7 @@ public class QuintaPregunta extends AppCompatActivity {
     }
 
     public void Sextapregunta1(){
-        Intent intent1 = new Intent(this, QuintaPregunta.class);
+        Intent intent1 = new Intent(this, SextaPregunta.class);
         startActivity(intent1);
     }
 
