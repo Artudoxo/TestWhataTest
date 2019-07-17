@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnempezar = findViewById(R.id.btnempezar);
         btnrules = findViewById(R.id.brnrules);
-
         btnempezar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,9 +77,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void Empezar(){
         eduser = findViewById(R.id.eduser);
-        Intent empezar = new Intent(this, Primerapregunta.class);
-        empezar.putExtra("user", eduser.getText().toString());
-        startActivity(empezar);
+        try{
+            if (eduser.getText().toString().isEmpty()){
+                eduser.setError("Campo obligatorio");
+            }else{
+                Intent empezar = new Intent(this, Primerapregunta.class);
+                empezar.putExtra("user", eduser.getText().toString());
+                startActivity(empezar);
+            }
+        }catch(Exception e){
+            Toast.makeText(getApplicationContext(), "Introduce tu nombre de usuario", Toast.LENGTH_LONG).show();
+        }
+
+
     }
 
 }
