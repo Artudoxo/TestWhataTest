@@ -64,4 +64,7 @@
     <string name="rq104">William Shakespeare</string>
     <string name="btnvolver">Volver a la pantalla principal</string>
     <string name="mensaje">Mensaje</string>
+    <string name="puntuacion">Puntuación</string>
+    <string name="usuario">Usuario</string>
+
 </resources>

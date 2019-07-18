@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 
 public class TerceraPregunta extends AppCompatActivity {
     RadioButton r31,r32,r33,r34;
+    int rst3;
     public static int espera =1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,24 +24,33 @@ public class TerceraPregunta extends AppCompatActivity {
         r31.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                rst3 = 0;
+                r31.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r32.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst3 = 0;
+                r32.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r33.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst3 = 0;
+                r33.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_correct));
                 esperar(espera);
             }
         });
         r34.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst3 = 0;
+                r34.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
@@ -48,6 +58,7 @@ public class TerceraPregunta extends AppCompatActivity {
 
     public void Cuartapregunta1(){
         Intent intent1 = new Intent(this, CuartaPregunta.class);
+        intent1.putExtra("result2", rst3);
         startActivity(intent1);
     }
 

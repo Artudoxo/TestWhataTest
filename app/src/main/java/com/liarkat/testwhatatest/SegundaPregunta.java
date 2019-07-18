@@ -10,11 +10,15 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class SegundaPregunta extends AppCompatActivity {
     RadioButton r21, r22, r23, r24;
     int rst2;
+    TextView users;
     ImageButton ibtn;
     public static int espera = 1000;
     @Override
@@ -26,6 +30,11 @@ public class SegundaPregunta extends AppCompatActivity {
         r22 = findViewById(R.id.r22);
         r23 = findViewById(R.id.r23);
         r24 = findViewById(R.id.r24);
+        users = findViewById(R.id.users);
+        Bundle bundle = new Bundle();
+        bundle = getIntent().getExtras();
+        String us = bundle.getString("user");
+        users.setText(us);
 
 
         ibtn.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +81,10 @@ public class SegundaPregunta extends AppCompatActivity {
     public void Tercerapregunta1(){
         Intent intent1 = new Intent(this, TerceraPregunta.class);
         intent1.putExtra("result2", rst2);
+        String us2 =  users.getText().toString();
+        intent1.putExtra("user", us2);
         startActivity(intent1);
+        finish();
     }
 
     public void esperar(int milisegundos){
@@ -86,10 +98,15 @@ public class SegundaPregunta extends AppCompatActivity {
     }
 
     public void Mostrar_dialogo(){
+        new Bundle();
+        Bundle bundle2;
+        bundle2 = getIntent().getExtras();
+        int p1 = bundle2.getInt("result1");
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
         dialogo.setTitle("Puntuación");
         dialogo.setIcon(android.R.drawable.ic_dialog_info);
-        dialogo.setMessage("");
+        dialogo.setMessage("Las puntuaciones se veran reflejadas con 1 y 0, 1 para la respuesta correcta y 0 para la respuesta incorrecta. \n\n" +
+                "Pregunta 1:" + p1 + " ");
         dialogo.setCancelable(true);
         dialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
