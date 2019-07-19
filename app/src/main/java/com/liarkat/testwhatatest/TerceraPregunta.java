@@ -63,7 +63,7 @@ public class TerceraPregunta extends AppCompatActivity {
         r33.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rst3 = 0;
+                rst3 = 1;
                 r33.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_correct));
                 esperar(espera);
             }

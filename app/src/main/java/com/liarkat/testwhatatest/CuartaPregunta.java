@@ -44,24 +44,33 @@ public class CuartaPregunta extends AppCompatActivity {
         r41.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                rst4 = 0;
+                r41.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r42.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst4 = 0;
+                r42.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r43.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst4 = 0;
+                r43.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r44.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst4 = 0;
+                r44.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });

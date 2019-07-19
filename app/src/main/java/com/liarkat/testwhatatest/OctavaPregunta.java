@@ -44,24 +44,32 @@ public class OctavaPregunta extends AppCompatActivity {
         r81.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst8 = 0;
+                r81.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r82.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst8 = 0;
+                r82.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r83.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst8 = 0;
+                r83.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r84.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst8 = 0;
+                r84.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
@@ -70,7 +78,7 @@ public class OctavaPregunta extends AppCompatActivity {
     public void Novenapregunta1(){
         Bundle bundle2 = new Bundle();
         bundle2 = getIntent().getExtras();
-        Intent intent1 = new Intent(this, QuintaPregunta.class);
+        Intent intent1 = new Intent(this, NovenaPregunta.class);
         String us2 =  user.getText().toString();
         int rs1 = bundle2.getInt("result1");
         int rs2 = bundle2.getInt("result2");

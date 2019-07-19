@@ -44,24 +44,32 @@ public class QuintaPregunta extends AppCompatActivity {
         r51.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst5 = 0;
+                r51.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r52.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst5 = 0;
+                r52.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r53.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst5 = 0;
+                r53.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r54.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst5 = 0;
+                r54.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
@@ -70,7 +78,7 @@ public class QuintaPregunta extends AppCompatActivity {
     public void Sextapregunta1(){
         Bundle bundle2 = new Bundle();
         bundle2 = getIntent().getExtras();
-        Intent intent1 = new Intent(this, QuintaPregunta.class);
+        Intent intent1 = new Intent(this, SextaPregunta.class);
         String us2 =  user.getText().toString();
         int rs1 = bundle2.getInt("result1");
         int rs2 = bundle2.getInt("result2");

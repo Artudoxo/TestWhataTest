@@ -45,48 +45,61 @@ public class SextaPregunta extends AppCompatActivity {
         r61.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst6 = 0;
+                r61.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r62.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst6 = 0;
+                r62.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r63.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst6 = 0;
+                r63.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
         r64.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rst6 = 0;
+                r64.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
                 esperar(espera);
             }
         });
     }
 
     public void Septimapregunta1(){
-        Bundle bundle2 = new Bundle();
-        bundle2 = getIntent().getExtras();
-        Intent intent1 = new Intent(this, QuintaPregunta.class);
-        String us2 =  user.getText().toString();
-        int rs1 = bundle2.getInt("result1");
-        int rs2 = bundle2.getInt("result2");
-        int rs3 = bundle2.getInt("result3");
-        int rs4 = bundle2.getInt("result4");
-        int rs5 = bundle2.getInt("result5");
-        intent1.putExtra("result1", rs1);
-        intent1.putExtra("result2",rs2);
-        intent1.putExtra("result3", rs3);
-        intent1.putExtra("result4",rs4);
-        intent1.putExtra("result5", rs5);
-        intent1.putExtra("result6", rst6);
-        intent1.putExtra("user", us2);
-        startActivity(intent1);
-        finish();
+        try{
+            Bundle bundle2 = new Bundle();
+            bundle2 = getIntent().getExtras();
+            Intent intent1 = new Intent(this, SeptimaPregunta.class);
+            String us2 =  user.getText().toString();
+            int rs1 = bundle2.getInt("result1");
+            int rs2 = bundle2.getInt("result2");
+            int rs3 = bundle2.getInt("result3");
+            int rs4 = bundle2.getInt("result4");
+            int rs5 = bundle2.getInt("result5");
+            intent1.putExtra("result1", rs1);
+            intent1.putExtra("result2",rs2);
+            intent1.putExtra("result3", rs3);
+            intent1.putExtra("result4",rs4);
+            intent1.putExtra("result5", rs5);
+            intent1.putExtra("result6", rst6);
+            intent1.putExtra("user", us2);
+            startActivity(intent1);
+            finish();
+        }catch(Exception e){
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
     }
 
     public void esperar(int milisegundos){
