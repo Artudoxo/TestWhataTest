@@ -18,6 +18,7 @@ import org.w3c.dom.Text;
 public class SegundaPregunta extends AppCompatActivity {
     RadioButton r21, r22, r23, r24;
     int rst2;
+
     TextView users;
     ImageButton ibtn;
     public static int espera = 1000;
@@ -34,6 +35,7 @@ public class SegundaPregunta extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle = getIntent().getExtras();
         String us = bundle.getString("user");
+
         users.setText(us);
 
 
@@ -79,10 +81,14 @@ public class SegundaPregunta extends AppCompatActivity {
     }
 
     public void Tercerapregunta1(){
+        Bundle bundle2 = new Bundle();
+        bundle2 = getIntent().getExtras();
         Intent intent1 = new Intent(this, TerceraPregunta.class);
         intent1.putExtra("result2", rst2);
         String us2 =  users.getText().toString();
+        int rs1 = bundle2.getInt("result1");
         intent1.putExtra("user", us2);
+        intent1.putExtra("result1", rs1);
         startActivity(intent1);
         finish();
     }
@@ -99,9 +105,9 @@ public class SegundaPregunta extends AppCompatActivity {
 
     public void Mostrar_dialogo(){
         new Bundle();
-        Bundle bundle2;
-        bundle2 = getIntent().getExtras();
-        int p1 = bundle2.getInt("result1");
+        Bundle bundle3;
+        bundle3 = getIntent().getExtras();
+        int p1 = bundle3.getInt("result1");
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
         dialogo.setTitle("Puntuación");
         dialogo.setIcon(android.R.drawable.ic_dialog_info);
