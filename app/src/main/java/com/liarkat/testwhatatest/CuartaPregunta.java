@@ -69,8 +69,8 @@ public class CuartaPregunta extends AppCompatActivity {
         r44.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rst4 = 0;
-                r44.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
+                rst4 = 1;
+                r44.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_correct));
                 esperar(espera);
             }
         });
@@ -133,4 +133,28 @@ public class CuartaPregunta extends AppCompatActivity {
         dialogo.show();
     }
 
+    public void onBackPressed() {
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        dialogo.setTitle("Hacia la pantalla principal");
+        dialogo.setIcon(android.R.drawable.ic_dialog_info);
+        dialogo.setMessage("¿Estas seguro/a que deseas dar hacia atras? \n\n Todo tu proceso se perdera si lo haces");
+        dialogo.setCancelable(true);
+        dialogo.setPositiveButton("¡Si! Sacame de aquí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Ok, hacerlo otra vez no vendra mal tampoco.", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+
+        dialogo.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Bueno, continuemos con esto", Toast.LENGTH_LONG).show();
+
+            }
+        });
+        dialogo.show();
+
+    }
 }

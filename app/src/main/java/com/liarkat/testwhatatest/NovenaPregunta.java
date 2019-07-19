@@ -24,6 +24,7 @@ public class NovenaPregunta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_novena_pregunta);
+        ibtn = findViewById(R.id.ibtn);
         r91 = findViewById(R.id.rq91);
         r92 = findViewById(R.id.rq92);
         r93 = findViewById(R.id.rq93);
@@ -52,8 +53,8 @@ public class NovenaPregunta extends AppCompatActivity {
         r92.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rst9 = 0;
-                r92.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
+                rst9 = 1;
+                r92.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_correct));
                 esperar(espera);
             }
         });
@@ -146,5 +147,30 @@ public class NovenaPregunta extends AppCompatActivity {
             }
         });
         dialogo.show();
+    }
+
+    public void onBackPressed() {
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        dialogo.setTitle("Hacia la pantalla principal");
+        dialogo.setIcon(android.R.drawable.ic_dialog_info);
+        dialogo.setMessage("¿Estas seguro/a que deseas dar hacia atras? \n\n Todo tu proceso se perdera si lo haces");
+        dialogo.setCancelable(true);
+        dialogo.setPositiveButton("¡Si! Sacame de aquí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Ok, hacerlo otra vez no vendra mal tampoco.", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+
+        dialogo.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Bueno, continuemos con esto", Toast.LENGTH_LONG).show();
+
+            }
+        });
+        dialogo.show();
+
     }
 }

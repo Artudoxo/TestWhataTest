@@ -44,8 +44,8 @@ public class QuintaPregunta extends AppCompatActivity {
         r51.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rst5 = 0;
-                r51.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_error));
+                rst5 = 1;
+                r51.setBackgroundDrawable(getResources().getDrawable(R.drawable.rrounded_correct));
                 esperar(espera);
             }
         });
@@ -76,22 +76,27 @@ public class QuintaPregunta extends AppCompatActivity {
     }
 
     public void Sextapregunta1(){
-        Bundle bundle2 = new Bundle();
-        bundle2 = getIntent().getExtras();
-        Intent intent1 = new Intent(this, SextaPregunta.class);
-        String us2 =  user.getText().toString();
-        int rs1 = bundle2.getInt("result1");
-        int rs2 = bundle2.getInt("result2");
-        int rs3 = bundle2.getInt("result3");
-        int rs4 = bundle2.getInt("result4");
-        intent1.putExtra("result1", rs1);
-        intent1.putExtra("result2",rs2);
-        intent1.putExtra("result3", rs3);
-        intent1.putExtra("result4", rs4);
-        intent1.putExtra("result5", rst5);
-        intent1.putExtra("user", us2);
-        startActivity(intent1);
-        finish();
+        try{
+            Bundle bundle2 = new Bundle();
+            bundle2 = getIntent().getExtras();
+            Intent intent1 = new Intent(this, SextaPregunta.class);
+            String us2 =  user.getText().toString();
+            int rs1 = bundle2.getInt("result1");
+            int rs2 = bundle2.getInt("result2");
+            int rs3 = bundle2.getInt("result3");
+            int rs4 = bundle2.getInt("result4");
+            intent1.putExtra("result1", rs1);
+            intent1.putExtra("result2",rs2);
+            intent1.putExtra("result3", rs3);
+            intent1.putExtra("result4", rs4);
+            intent1.putExtra("result5", rst5);
+            intent1.putExtra("user", us2);
+            startActivity(intent1);
+            finish();
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
     }
 
     public void esperar(int milisegundos){
@@ -134,5 +139,30 @@ public class QuintaPregunta extends AppCompatActivity {
             }
         });
         dialogo.show();
+    }
+
+    public void onBackPressed() {
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        dialogo.setTitle("Hacia la pantalla principal");
+        dialogo.setIcon(android.R.drawable.ic_dialog_info);
+        dialogo.setMessage("¿Estas seguro/a que deseas dar hacia atras? \n\n Todo tu proceso se perdera si lo haces");
+        dialogo.setCancelable(true);
+        dialogo.setPositiveButton("¡Si! Sacame de aquí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Ok, hacerlo otra vez no vendra mal tampoco.", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+
+        dialogo.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Bueno, continuemos con esto", Toast.LENGTH_LONG).show();
+
+            }
+        });
+        dialogo.show();
+
     }
 }
