@@ -18,7 +18,6 @@ import org.w3c.dom.Text;
 public class SegundaPregunta extends AppCompatActivity {
     RadioButton r21, r22, r23, r24;
     int rst2;
-
     TextView users;
     ImageButton ibtn;
     public static int espera = 1000;
