@@ -97,4 +97,28 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         eduser.getText().clear();
     }
+
+    public void onBackPressed() {
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        dialogo.setTitle("¿Deseas salir?");
+        dialogo.setIcon(android.R.drawable.ic_dialog_info);
+        dialogo.setMessage("¿Estas seguro/a que deseas salir de la aplicación?");
+        dialogo.setCancelable(true);
+        dialogo.setPositiveButton("¡Si! Sacame de aquí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        dialogo.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Bueno, continuemos con esto", Toast.LENGTH_LONG).show();
+
+            }
+        });
+        dialogo.show();
+
+    }
 }
