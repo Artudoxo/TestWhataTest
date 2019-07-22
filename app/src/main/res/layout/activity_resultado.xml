@@ -38,7 +38,7 @@
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:text="Resultado"
-            android:textSize="60dp"
+            android:textSize="25dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline37"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
