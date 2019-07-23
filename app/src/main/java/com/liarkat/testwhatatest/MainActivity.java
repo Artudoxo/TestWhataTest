@@ -12,9 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
     EditText eduser;
     Button btnempezar, btnrules;
+
+    private Locale locale;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,31 +47,31 @@ public class MainActivity extends AppCompatActivity {
 
     public void Mostrar_dialogo(){
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
-        dialogo.setTitle("Reglas a seguir");
+        dialogo.setTitle(getResources().getString(R.string.rules));
         dialogo.setIcon(android.R.drawable.ic_dialog_info);
-        dialogo.setMessage("De acuerdo a la cantidad de preguntas acertadas se te sera evaluado. \n\na. 10 preguntas acertadas = ¡Que haces aqui nerd!" +
-        "\n\nb. De 7 a 9 preguntas acertadas = !Hey, no se te da mal! \n\nc. De 4 a 6 preguntas acertadas = Mira... no quiero asustarte pero... estudia mas..."+
-                "\n\nd. De 1 a 3 preguntas acertadas = ¿De verdad asistias a clases?\n\n\n Toda puntuación alcanzada en esta App no sera publicada en ningun medio conocido, por favor, sientete libre de responder con confianza.");
+        dialogo.setMessage(getResources().getString(R.string.d1)+  " \n\n" +getResources().getString(R.string.d2) +
+        "\n\n"+getResources().getString(R.string.d3) +" \n\n"+getResources().getString(R.string.d4) +
+                "\n\n"+getResources().getString(R.string.d5) +"\n\n\n "+getResources().getString(R.string.d6));
         dialogo.setCancelable(true);
         dialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "Ok, ya estas advertido. ¡Suerte!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),getResources().getString(R.string.adv) , Toast.LENGTH_LONG).show();
             }
         });
 
-        dialogo.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+        dialogo.setNegativeButton(getResources().getString(R.string.canc), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "¡Ey, las reglas son importantes!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.neg), Toast.LENGTH_LONG).show();
 
             }
         });
 
-        dialogo.setNeutralButton("Da igual", new DialogInterface.OnClickListener() {
+        dialogo.setNeutralButton(getResources().getString(R.string.da), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "Bueno... Suerte, supongo...", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.bueno), Toast.LENGTH_LONG).show();
 
             }
         });
@@ -79,14 +83,14 @@ public class MainActivity extends AppCompatActivity {
         eduser = findViewById(R.id.eduser);
         try{
             if (eduser.getText().toString().isEmpty()){
-                eduser.setError("Campo obligatorio");
+                eduser.setError(getResources().getString(R.string.camp));
             }else{
                 Intent empezar = new Intent(this, Primerapregunta.class);
                 empezar.putExtra("user", eduser.getText().toString());
                 startActivity(empezar);
             }
         }catch(Exception e){
-            Toast.makeText(getApplicationContext(), "Introduce tu nombre de usuario", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.user), Toast.LENGTH_LONG).show();
         }
 
 
@@ -100,21 +104,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void onBackPressed() {
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
-        dialogo.setTitle("¿Deseas salir?");
+        dialogo.setTitle(getResources().getString(R.string.sal));
         dialogo.setIcon(android.R.drawable.ic_dialog_info);
-        dialogo.setMessage("¿Estas seguro/a que deseas salir de la aplicación?");
+        dialogo.setMessage(getResources().getString(R.string.conf));
         dialogo.setCancelable(true);
-        dialogo.setPositiveButton("¡Si! Sacame de aquí", new DialogInterface.OnClickListener() {
+        dialogo.setPositiveButton(getResources().getString(R.string.sali), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
             }
         });
 
-        dialogo.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+        dialogo.setNegativeButton(getResources().getString(R.string.canc), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "Bueno, continuemos con esto", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.conti), Toast.LENGTH_LONG).show();
 
             }
         });

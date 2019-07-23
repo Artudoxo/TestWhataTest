@@ -151,22 +151,21 @@ public class NovenaPregunta extends AppCompatActivity {
 
     public void onBackPressed() {
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
-        dialogo.setTitle("Hacia la pantalla principal");
+        dialogo.setTitle(getResources().getString(R.string.sal));
         dialogo.setIcon(android.R.drawable.ic_dialog_info);
-        dialogo.setMessage("¿Estas seguro/a que deseas dar hacia atras? \n\n Todo tu proceso se perdera si lo haces");
+        dialogo.setMessage(getResources().getString(R.string.conf));
         dialogo.setCancelable(true);
-        dialogo.setPositiveButton("¡Si! Sacame de aquí", new DialogInterface.OnClickListener() {
+        dialogo.setPositiveButton(getResources().getString(R.string.sali), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "Ok, hacerlo otra vez no vendra mal tampoco.", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
 
-        dialogo.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+        dialogo.setNegativeButton(getResources().getString(R.string.canc), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "Bueno, continuemos con esto", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.conti), Toast.LENGTH_LONG).show();
 
             }
         });

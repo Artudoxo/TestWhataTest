@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Test... ¡What a Test!</string>
     <string name="user">Enter your user.</string>
-    <string name="reglas">Rules</string>
     <string name="test">Test... ¡What a Test!</string>
     <string name="qone">What do koalas feed on?</string>
     <string name="q1">Question 1:</string>
@@ -25,7 +24,7 @@
     <string name="qfour">Which is the longest river in Spain?</string>
     <string name="rq41">Guadalquivir</string>
     <string name="rq42">Ebro</string>
-    <string name="rq43">Júcar</string>
+    <string name="rq43">Jucar</string>
     <string name="rq44">Tajo</string>
     <string name="q5">Question 5:</string>
     <string name="qfive">Who wrote The Odyssey?</string>
@@ -67,5 +66,22 @@
     <string name="usuario">User</string>
     <string name="puntuacion">Score</string>
     <string name="empezar">¡Let\'s go!</string>
-
+    <string name="rules">Rules</string>
+    <string name="d1">According to the number of correct questions you will be evaluated.</string>
+    <string name="reglas">Rules</string>
+    <string name="d2">A. 10 right questions = What are you doing here nerd!</string>
+    <string name="d3">B. From 7 to 9 right questions =! Hey, you\'re not bad!</string>
+    <string name="d4">C. From 4 to 6 right questions = Look ... I don\'t want to scare you but... study more...</string>
+    <string name="d5">D. From 1 to 3 correct questions = Did you really attend classes?</string>
+    <string name="d6">Any score achieved in this App will not be published in any known medium, please feel free to respond with confidence.</string>
+    <string name="adv">Ok, you are already warned. Luck!</string>
+    <string name="canc">Cancel</string>
+    <string name="neg">Hey, the rules are important!</string>
+    <string name="camp">Obligatory field</string>
+    <string name="da">Doesn´t matter</string>
+    <string name="bueno">Well... Luck, I guess...</string>
+    <string name="sal">Do you want to go out?</string>
+    <string name="conf">Are you sure you want to exit the application?</string>
+    <string name="sali">Yes, get me out of here!</string>
+    <string name="conti">Well, let\'s continue with this</string>
 </resources>
