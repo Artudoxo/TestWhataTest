@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void Mostrar_dialogo(){
-        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        MaterialAlertDialogBuilder dialogo = new MaterialAlertDialogBuilder(this);
         dialogo.setTitle(getResources().getString(R.string.rules));
         dialogo.setIcon(android.R.drawable.ic_dialog_info);
         dialogo.setMessage(getResources().getString(R.string.d1)+  " \n\n" +getResources().getString(R.string.d2) +
