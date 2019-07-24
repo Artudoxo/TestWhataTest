@@ -37,15 +37,15 @@ public class Resultado extends AppCompatActivity {
         txtresultado.setText(resultado +"/10");
         txtmensaje = findViewById(R.id.txtmensaje);
         if (resultado == 10){
-            txtmensaje.setText("¡Que haces aqui nerd!");
+            txtmensaje.setText(getResources().getString(R.string.nerd));
         } else if(resultado < 10 && resultado > 6){
-            txtmensaje.setText("¡Hey, no se te da mal!");
+            txtmensaje.setText(getResources().getString(R.string.nomal));
         } else if (resultado < 7 && resultado > 3){
-            txtmensaje.setText("Mira... no quiero asustarte pero... estudia mas...");
+            txtmensaje.setText(getResources().getString(R.string.scary));
         } else if (resultado < 4 && resultado > 0){
-            txtmensaje.setText("¿De verdad asistias a clases?");
+            txtmensaje.setText(getResources().getString(R.string.classes));
         } else if (resultado == 0){
-            txtmensaje.setText("Ya no se que decirte... la respuesta esta fuera de mi alcance");
+            txtmensaje.setText(getResources().getString(R.string.alcance));
         }
         btnvolver = findViewById(R.id.btnvolver);
 

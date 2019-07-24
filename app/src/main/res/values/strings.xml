@@ -84,4 +84,13 @@
     <string name="conf">Are you sure you want to exit the application?</string>
     <string name="sali">Yes, get me out of here!</string>
     <string name="conti">Well, let\'s continue with this</string>
+    <string name="dp1">The scores will be reflected with 1 and 0, 1 for the correct answer and 0 for the incorrect answer.</string>
+    <string name="dp2">Hey you just started, you\'re on the first question, when you answer this come and see me.</string>
+    <string name="dp3">Ok, it seems that everything is going well... I guess...</string>
+    <string name="dp4">I don\'t know how you go, but ... Good luck!</string>
+    <string name="nerd">What are you doing here nerd!</string>
+    <string name="nomal">Hey, you are not bad!</string>
+    <string name="scary">Look... I don\'t want to scare you but... study more...</string>
+    <string name="classes">Did you really attend classes?</string>
+    <string name="alcance">I don\'t know what to tell you ... the answer is out of my reach</string>
 </resources>

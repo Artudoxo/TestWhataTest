@@ -110,22 +110,22 @@ public class TerceraPregunta extends AppCompatActivity {
         int p1 = bundle3.getInt("result1");
         int p2 = bundle3.getInt("result2");
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
-        dialogo.setTitle("Puntuación");
+        dialogo.setTitle(getResources().getString(R.string.puntuacion));
         dialogo.setIcon(android.R.drawable.ic_dialog_info);
-        dialogo.setMessage("Las puntuaciones se veran reflejadas con 1 y 0, 1 para la respuesta correcta y 0 para la respuesta incorrecta. \n\n" +
-                "Pregunta 1:" + p1 + "\n Pregunta 2: " + p2 + "");
+        dialogo.setMessage(getResources().getString(R.string.dp1)+"\n\n" +
+                getResources().getString(R.string.q1)+ + p1 + "\n"+ getResources().getString(R.string.q2)+ + p2);
         dialogo.setCancelable(true);
         dialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "Ok, parece que todo va bien... supongo...", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.dp3), Toast.LENGTH_LONG).show();
             }
         });
 
-        dialogo.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+        dialogo.setNegativeButton(getResources().getString(R.string.canc), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "No se como vayas, pero... ¡Suerte!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.dp4), Toast.LENGTH_LONG).show();
 
             }
         });

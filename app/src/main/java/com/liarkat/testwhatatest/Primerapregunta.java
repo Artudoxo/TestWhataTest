@@ -98,14 +98,14 @@ public class Primerapregunta extends AppCompatActivity {
     public void Mostrar_dialogo(){
 
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
-        dialogo.setTitle("Puntuación");
+        dialogo.setTitle(getResources().getString(R.string.puntuacion));
         dialogo.setIcon(android.R.drawable.ic_dialog_info);
-        dialogo.setMessage("Las puntuaciones se veran reflejadas con 1 y 0, 1 para la respuesta correcta y 0 para la respuesta incorrecta.\n\nHey acabas de empezar, estas en la primera pregunta, cuando respondas esta ven a verme.");
+        dialogo.setMessage(getResources().getString(R.string.dp1)+"\n\n"+getResources().getString(R.string.dp2));
         dialogo.setCancelable(true);
         dialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "Ok, parece que todo va bien... supongo...", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.dp3), Toast.LENGTH_LONG).show();
             }
         });
 

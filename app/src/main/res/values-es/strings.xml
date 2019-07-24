@@ -85,6 +85,15 @@
     <string name="conf">¿Estas seguro que deseas salir de la aplicación?</string>
     <string name="sali">¡Si, sacame de aqui!</string>
     <string name="conti">Bueno, continuemos con esto.</string>
+    <string name="dp1">Las puntuaciones se veran reflejadas con 1 y 0, 1 para la respuesta correcta y 0 para la respuesta incorrecta.</string>
+    <string name="dp2">Hey acabas de empezar, estas en la primera pregunta, cuando respondas esta ven a verme.</string>
+    <string name="dp3">Ok, parece que todo va bien... supongo...</string>
+    <string name="dp4">No se como vayas, pero... ¡Suerte!</string>
+    <string name="nerd">¡Qué haces aquí nerd!</string>
+    <string name="nomal">¡Hey, no se te da mal!</string>
+    <string name="scary">Mira... no quiero asustarte pero... estudia mas...</string>
+    <string name="classes">¿De verdad asistias a clases?</string>
+    <string name="alcance">Ya no se que decirte... la respuesta esta fuera de mi alcance</string>
 
 
 </resources>
