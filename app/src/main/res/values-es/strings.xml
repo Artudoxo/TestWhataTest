@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Test... ¡What a Test!</string>
+    <string name="user">Introduzca su usuario.</string>
+    <string name="reglas">Reglas</string>
+    <string name="test">Test... ¡What a Test!</string>
+    <string name="qone">¿De que se alimentan los koalas?</string>
+    <string name="q1">Pregunta 1:</string>
+    <string name="qtwo">¿Quien inventó el telescopio?</string>
+    <string name="rq11">Eucalipto</string>
+    <string name="rq12">Manzanilla</string>
+    <string name="rq13">Romero</string>
+    <string name="rq14">Valeriana</string>
+    <string name="q2">Pregunta 2:</string>
+    <string name="rq21">Galileo Galilei</string>
+    <string name="rq24">Hans Lippershey</string>
+    <string name="rq23">Issac Newton</string>
+    <string name="rq22">Leonardo da Vinci</string>
+    <string name="q3">Pregunta 3:</string>
+    <string name="qthree">¿Qué cantidad de huesos hay en el cuerpo humano adulto?</string>
+    <string name="rq33">206 huesos</string>
+    <string name="rq32">126 huesos</string>
+    <string name="rq31">280 huesos</string>
+    <string name="rq34">234 huesos</string>
+    <string name="q4">Pregunta 4:</string>
+    <string name="qfour">¿Cual es el río más largo de España?</string>
+    <string name="rq41">Guadalquivir</string>
+    <string name="rq42">Ebro</string>
+    <string name="rq43">Júcar</string>
+    <string name="rq44">Tajo</string>
+    <string name="q5">Pregunta 5:</string>
+    <string name="qfive">¿Quién escribió La Odisea?</string>
+    <string name="rq51">Homero</string>
+    <string name="rq52">Jorge Manrique</string>
+    <string name="rq53">Francisco de Quevedo</string>
+    <string name="rq54">Pablo Neruda</string>
+    <string name="q6">Pregunta 6:</string>
+    <string name="qsix">¿Cual es el oceano mas grande?</string>
+    <string name="rq61">Océano Atlántico</string>
+    <string name="rq62">Océano Pacífico</string>
+    <string name="rq63">Océano Índico</string>
+    <string name="rq64">Océano Antártico</string>
+    <string name="q7">Pregunta 7:</string>
+    <string name="qseven">¿En qué año comenzo la II Guerra Mundial?</string>
+    <string name="rq71">1929</string>
+    <string name="rq72">1934</string>
+    <string name="rq73">1949</string>
+    <string name="q8">Pregunta 8:</string>
+    <string name="qeigth">¿Cual es el quinto planeta del sistema solar?</string>
+    <string name="rq81">Saturno</string>
+    <string name="rq82">Neptuno</string>
+    <string name="rq83">Júpiter</string>
+    <string name="rq84">Venus</string>
+    <string name="q9">Pregunta 9:</string>
+    <string name="qnine">¿Quién pronunció la frase \"solo sé que no sé nada\"?</string>
+    <string name="rq91">Platón</string>
+    <string name="rq92">Sócrates</string>
+    <string name="rq93">Tales de Mileto</string>
+    <string name="rq94">Heráclito</string>
+    <string name="q10">Pregunta 10:</string>
+    <string name="qten">¿Quién escribió \"Hamlet\"?</string>
+    <string name="rq101">William Faulkner</string>
+    <string name="rq102">Philip K. Dick</string>
+    <string name="rq103">George Orwell</string>
+    <string name="rq104">William Shakespeare</string>
+    <string name="btnvolver">Volver a la pantalla principal</string>
+    <string name="mensaje">Mensaje</string>
+    <string name="usuario">Usuario</string>
+    <string name="puntuacion">Puntuación</string>
+    <string name="empezar">¡Empezar test!</string>
+    <string name="rules">Reglas</string>
+    <string name="d1" >De acuerdo a la cantidad de preguntas acertadas se te sera evaluado.</string>
+    <string name="d2">A. 10 preguntas acertadas = ¡Que haces aqui nerd!</string>
+    <string name="d3">B. De 7 a 9 preguntas acertadas = !Hey, no se te da mal!</string>
+    <string name="d4">C. De 4 a 6 preguntas acertadas = Mira... no quiero asustarte pero... estudia mas...</string>
+    <string name="d5">D. De 1 a 3 preguntas acertadas = ¿De verdad asistias a clases?</string>
+    <string name="d6">Toda puntuación alcanzada en esta App no sera publicada en ningun medio conocido, por favor, sientete libre de responder con confianza.</string>
+    <string name="adv">Ok, ya estas advertido. ¡Suerte!</string>
+    <string name="canc">Cancelar</string>
+    <string name="neg">¡Hey, las reglas son importantes!</string>
+    <string name="camp">Campo obligatorio</string>
+    <string name="da">Da igual</string>
+    <string name="bueno">Bueno... Suerte, Supongo...</string>
+    <string name="sal">¿Deseas salir?</string>
+    <string name="conf">¿Estas seguro que deseas salir de la aplicación?</string>
+    <string name="sali">¡Si, sacame de aqui!</string>
+    <string name="conti">Bueno, continuemos con esto.</string>
+
+
+</resources>
