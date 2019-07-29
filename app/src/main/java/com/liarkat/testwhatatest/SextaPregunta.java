@@ -150,7 +150,7 @@ public class SextaPregunta extends AppCompatActivity {
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
         dialogo.setTitle(getResources().getString(R.string.sal));
         dialogo.setIcon(android.R.drawable.ic_dialog_info);
-        dialogo.setMessage(getResources().getString(R.string.conf));
+        dialogo.setMessage(getResources().getString(R.string.sa));
         dialogo.setCancelable(true);
         dialogo.setPositiveButton(getResources().getString(R.string.sali), new DialogInterface.OnClickListener() {
             @Override

@@ -82,6 +82,7 @@
     <string name="da">Da igual</string>
     <string name="bueno">Bueno... Suerte, Supongo...</string>
     <string name="sal">¿Deseas salir?</string>
+    <string name="sa">¿Estas seguro que deseas regresar al menu principal?</string>
     <string name="conf">¿Estas seguro que deseas salir de la aplicación?</string>
     <string name="sali">¡Si, sacame de aqui!</string>
     <string name="conti">Bueno, continuemos con esto.</string>

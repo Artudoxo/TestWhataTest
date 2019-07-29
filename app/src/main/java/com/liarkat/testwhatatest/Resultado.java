@@ -1,12 +1,15 @@
 package com.liarkat.testwhatatest;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Resultado extends AppCompatActivity {
     Button btnvolver;
@@ -61,5 +64,30 @@ public class Resultado extends AppCompatActivity {
         Intent volver = new Intent(this, MainActivity.class);
         startActivity(volver);
         finish();
+    }
+
+
+    public void onBackPressed() {
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        dialogo.setTitle(getResources().getString(R.string.sal));
+        dialogo.setIcon(android.R.drawable.ic_dialog_info);
+        dialogo.setMessage(getResources().getString(R.string.sa));
+        dialogo.setCancelable(true);
+        dialogo.setPositiveButton(getResources().getString(R.string.sali), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        dialogo.setNegativeButton(getResources().getString(R.string.canc), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.conti), Toast.LENGTH_LONG).show();
+
+            }
+        });
+        dialogo.show();
+
     }
 }
