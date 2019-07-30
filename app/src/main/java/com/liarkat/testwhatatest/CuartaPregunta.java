@@ -34,6 +34,7 @@ public class CuartaPregunta extends AppCompatActivity {
         bundle = getIntent().getExtras();
         String us = bundle.getString("user");
 
+
         user.setText(us);
         ibtn.setOnClickListener(new View.OnClickListener() {
             @Override
