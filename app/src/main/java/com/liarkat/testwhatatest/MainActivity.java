@@ -3,20 +3,18 @@ package com.liarkat.testwhatatest;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.MediaPlayer;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     EditText eduser;
@@ -26,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         btnempezar = findViewById(R.id.btnempezar);
         btnrules = findViewById(R.id.brnrules);
@@ -89,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
             if (eduser.getText().toString().isEmpty()){
                 eduser.setError(getResources().getString(R.string.camp));
             }else{
+                GuardarUsuario();
                 Intent empezar = new Intent(this, Primerapregunta.class);
                 empezar.putExtra("user", eduser.getText().toString());
                 startActivity(empezar);
@@ -128,5 +128,30 @@ public class MainActivity extends AppCompatActivity {
         });
         dialogo.show();
 
+    }
+
+    public void GuardarUsuario(){
+        //Database
+        BaseDatos basedatos = new BaseDatos(this);
+
+        SQLiteDatabase sqlite = basedatos.getWritableDatabase();
+        ContentValues content = new ContentValues();
+        content.put(Estructura.COLUMN_NAME_USUARIO,eduser.getText().toString());
+        sqlite.insert(Estructura.TABLE_NAME,null, content);
+        sqlite.close();
+    }
+
+    public Cursor buscarUsuario(){
+        BaseDatos basedatos = new BaseDatos(this);
+        SQLiteDatabase sqlite = basedatos.getReadableDatabase();
+        String[] columnas = {
+                Estructura.COLUMN_NAME_USUARIO
+        };
+
+        String usuario = Estructura.COLUMN_NAME_USUARIO + "LIKE '" + eduser.getText().toString() + "'";
+        String ordenSalida = Estructura.COLUMN_NAME_USUARIO + "DESC";
+        Cursor cursor = sqlite.query(Estructura.TABLE_NAME, columnas, usuario, null, null,null,ordenSalida);
+        sqlite.close();
+        return cursor;
     }
 }
