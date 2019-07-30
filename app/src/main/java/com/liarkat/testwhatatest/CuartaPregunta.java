@@ -20,6 +20,7 @@ public class CuartaPregunta extends AppCompatActivity {
     int rst4;
     ImageButton ibtn;
     public static int espera = 1000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
