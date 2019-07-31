@@ -3,20 +3,21 @@ package com.liarkat.testwhatatest;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.MediaPlayer;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     EditText eduser;
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         btnempezar = findViewById(R.id.btnempezar);
         btnrules = findViewById(R.id.brnrules);
         btnempezar.setOnClickListener(new View.OnClickListener() {
@@ -35,15 +35,16 @@ public class MainActivity extends AppCompatActivity {
                 Empezar();
             }
         });
-
         btnrules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Mostrar_dialogo();
             }
         });
-
-
+        AdView adView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest2 = new AdRequest.Builder()
+                .setRequestAgent("android_studio:ad_template").build();
+        adView.loadAd(adRequest2);
 
 
     }
@@ -89,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
             if (eduser.getText().toString().isEmpty()){
                 eduser.setError(getResources().getString(R.string.camp));
             }else{
+
                 Intent empezar = new Intent(this, Primerapregunta.class);
                 empezar.putExtra("user", eduser.getText().toString());
                 startActivity(empezar);
@@ -129,4 +131,6 @@ public class MainActivity extends AppCompatActivity {
         dialogo.show();
 
     }
+
+
 }

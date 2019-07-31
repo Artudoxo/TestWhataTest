@@ -11,14 +11,40 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+
 public class Resultado extends AppCompatActivity {
     Button btnvolver;
     TextView txtmensaje, txtresultado, user;
+    private InterstitialAd mInterstitialAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado);
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        //COLOCAR CODIGO DE BANNER INTERSTITIAL
+        mInterstitialAd = new InterstitialAd(this);
+        //Id del banner Intersticial
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
 
+        });
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+                // LLama a showIntewrestial() para mostrar anuncio
+                showInterestial();
+            }
+        });
         Bundle bundle = new Bundle();
         bundle = getIntent().getExtras();
         String us = bundle.getString("user");
@@ -89,5 +115,14 @@ public class Resultado extends AppCompatActivity {
         });
         dialogo.show();
 
+    }
+
+    public void showInterestial() {
+        //Si esta cargado, entonces muestra el anuncio
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+
+        }
     }
 }
