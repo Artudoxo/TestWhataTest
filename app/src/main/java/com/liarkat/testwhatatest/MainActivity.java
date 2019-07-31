@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         btnempezar = findViewById(R.id.btnempezar);
         btnrules = findViewById(R.id.brnrules);
         btnempezar.setOnClickListener(new View.OnClickListener() {
@@ -34,15 +35,16 @@ public class MainActivity extends AppCompatActivity {
                 Empezar();
             }
         });
-
         btnrules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Mostrar_dialogo();
             }
         });
-
-
+        AdView adView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest2 = new AdRequest.Builder()
+                .setRequestAgent("android_studio:ad_template").build();
+        adView.loadAd(adRequest2);
 
 
     }
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             if (eduser.getText().toString().isEmpty()){
                 eduser.setError(getResources().getString(R.string.camp));
             }else{
-                GuardarUsuario();
+
                 Intent empezar = new Intent(this, Primerapregunta.class);
                 empezar.putExtra("user", eduser.getText().toString());
                 startActivity(empezar);
@@ -130,28 +132,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void GuardarUsuario(){
-        //Database
-        BaseDatos basedatos = new BaseDatos(this);
 
-        SQLiteDatabase sqlite = basedatos.getWritableDatabase();
-        ContentValues content = new ContentValues();
-        content.put(Estructura.COLUMN_NAME_USUARIO,eduser.getText().toString());
-        sqlite.insert(Estructura.TABLE_NAME,null, content);
-        sqlite.close();
-    }
-
-    public Cursor buscarUsuario(){
-        BaseDatos basedatos = new BaseDatos(this);
-        SQLiteDatabase sqlite = basedatos.getReadableDatabase();
-        String[] columnas = {
-                Estructura.COLUMN_NAME_USUARIO
-        };
-
-        String usuario = Estructura.COLUMN_NAME_USUARIO + "LIKE '" + eduser.getText().toString() + "'";
-        String ordenSalida = Estructura.COLUMN_NAME_USUARIO + "DESC";
-        Cursor cursor = sqlite.query(Estructura.TABLE_NAME, columnas, usuario, null, null,null,ordenSalida);
-        sqlite.close();
-        return cursor;
-    }
 }
