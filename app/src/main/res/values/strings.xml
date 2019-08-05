@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Test... ¡What a Test!</string>
-    <string name="user">Enter your user.</string>
+    <string name="user">Input your username.</string>
     <string name="test">Test... ¡What a Test!</string>
     <string name="qone">What do koalas feed on?</string>
     <string name="q1">Question 1:</string>
@@ -94,4 +94,8 @@
     <string name="classes">Did you really attend classes?</string>
     <string name="alcance">I don\'t know what to tell you ... the answer is out of my reach</string>
     <string name="sa">" 50/5000 Are you sure you want to return to the main menu?"</string>
+    <string name="pass">Input your password.</string>
+    <string name="login">Login</string>
+    <string name="count">00:00:00</string>
+    <string name="correct">Correct Answers:</string>
 </resources>

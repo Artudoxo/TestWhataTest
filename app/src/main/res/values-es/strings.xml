@@ -67,7 +67,7 @@
     <string name="mensaje">Mensaje</string>
     <string name="usuario">Usuario</string>
     <string name="puntuacion">Puntuación</string>
-    <string name="empezar">¡Empezar test!</string>
+    <string name="empezar">¡Empezar!</string>
     <string name="rules">Reglas</string>
     <string name="d1" >De acuerdo a la cantidad de preguntas acertadas se te sera evaluado.</string>
     <string name="d2">A. 10 preguntas acertadas = ¡Que haces aqui nerd!</string>
@@ -95,6 +95,8 @@
     <string name="scary">Mira... no quiero asustarte pero... estudia mas...</string>
     <string name="classes">¿De verdad asistias a clases?</string>
     <string name="alcance">Ya no se que decirte... la respuesta esta fuera de mi alcance</string>
+    <string name="pass">Introduzca su contraseña.</string>
+    <string name="login">Entrar</string>
 
 
 </resources>
