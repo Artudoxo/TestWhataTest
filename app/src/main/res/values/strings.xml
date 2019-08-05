@@ -98,4 +98,8 @@
     <string name="login">Login</string>
     <string name="count">00:00:00</string>
     <string name="correct">Correct Answers:</string>
+    <string name="wrong">Wrong Answers:</string>
+    <string name="maxpoint">Max Points:</string>
+    <string name="setup">Settings</string>
+    <string name="logout">Log out</string>
 </resources>

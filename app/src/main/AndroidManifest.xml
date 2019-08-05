@@ -9,7 +9,10 @@
         android:roundIcon="@drawable/ic_launcher_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Status"></activity>
+        <service android:name=".ServicioTimer"/>
+        <activity
+            android:name=".Status"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".Resultado"
             android:screenOrientation="portrait" />
@@ -58,6 +61,7 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
+
     </application>
 
 </manifest>

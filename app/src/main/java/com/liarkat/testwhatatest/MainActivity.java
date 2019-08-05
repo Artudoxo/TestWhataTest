@@ -20,7 +20,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class MainActivity extends AppCompatActivity {
-    EditText eduser;
+    EditText eduser, pass;
     Button btnempezar, btnrules;
 
     @Override
@@ -86,12 +86,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void Empezar(){
         eduser = findViewById(R.id.eduser);
+        pass = findViewById(R.id.edpass);
         try{
-            if (eduser.getText().toString().isEmpty()){
+            if (eduser.getText().toString().isEmpty() && pass.getText().toString().isEmpty() ){
                 eduser.setError(getResources().getString(R.string.camp));
+                pass.setError(getResources().getString(R.string.camp));
+
             }else{
 
-                Intent empezar = new Intent(this, Primerapregunta.class);
+                Intent empezar = new Intent(this, Status.class);
                 empezar.putExtra("user", eduser.getText().toString());
                 startActivity(empezar);
             }
@@ -106,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         eduser.getText().clear();
+        pass.getText().clear();
     }
 
     public void onBackPressed() {
