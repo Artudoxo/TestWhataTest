@@ -1,5 +1,6 @@
 package com.liarkat.testwhatatest;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,16 +18,26 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class MainActivity extends AppCompatActivity {
     EditText eduser, pass;
+    String corre, contraseña;
     Button btnempezar, btnrules;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        eduser = findViewById(R.id.eduser);
+        pass = findViewById(R.id.edpass);
+        firebaseAuth = FirebaseAuth.getInstance();
         btnempezar = findViewById(R.id.btnempezar);
         btnrules = findViewById(R.id.brnrules);
         btnempezar.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +49,18 @@ public class MainActivity extends AppCompatActivity {
         btnrules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Mostrar_dialogo();
+                corre = eduser.getText().toString().trim();
+                contraseña = pass.getText().toString().trim();
+                firebaseAuth.createUserWithEmailAndPassword(corre,contraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(MainActivity.this, "Registrado", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(MainActivity.this, "No registrado", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
         AdView adView = (AdView) findViewById(R.id.adView);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Test... ¡What a Test!</string>
-    <string name="user">Introduzca su usuario.</string>
+    <string name="user">Introduzca su correo.</string>
     <string name="reglas">Reglas</string>
     <string name="test">Test... ¡What a Test!</string>
     <string name="qone">¿De que se alimentan los koalas?</string>
