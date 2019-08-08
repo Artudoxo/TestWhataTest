@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity {
-    EditText eduser, pass;
+    EditText eduser, passs;
     String corre, contraseña;
     Button btnempezar, btnrules;
     FirebaseAuth firebaseAuth;
@@ -34,31 +35,70 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
         eduser = findViewById(R.id.eduser);
-        pass = findViewById(R.id.edpass);
+        passs = findViewById(R.id.edpass);
         firebaseAuth = FirebaseAuth.getInstance();
+
+        if (firebaseAuth.getCurrentUser() != null){
+            startActivity(new Intent(new Intent(MainActivity.this, Status.class)));
+            finish();
+        }
+        setContentView(R.layout.activity_main);
         btnempezar = findViewById(R.id.btnempezar);
         btnrules = findViewById(R.id.brnrules);
-        btnempezar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Empezar();
-            }
-        });
+
         btnrules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String email = eduser.getText().toString();
+                final String pass = passs.getText().toString();
+                if (TextUtils.isEmpty(email)){
+                    Toast.makeText(getApplicationContext(), "Introducir un email", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(pass)){
+                    Toast.makeText(getApplicationContext(), "Introducir una contraseña", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                firebaseAuth.signInWithEmailAndPassword(email, pass)
+                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (!task.isSuccessful()){
+                                    if (pass.length()<6){
+                                        passs.setError("Necesitas escribir mas de 6 caracteres.");
+                                    }else{
+                                        Toast.makeText(MainActivity.this, "Hubo un error", Toast.LENGTH_LONG).show();
+                                    }
+                                }else {
+                                    Intent intent = new Intent(MainActivity.this, Status.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }
+                        });
+
+            }
+        });
+        btnempezar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 corre = eduser.getText().toString().trim();
-                contraseña = pass.getText().toString().trim();
+                contraseña = passs.getText().toString().trim();
                 firebaseAuth.createUserWithEmailAndPassword(corre,contraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(MainActivity.this, "Registrado", Toast.LENGTH_SHORT).show();
                             eduser.getText().clear();
-                            pass.getText().clear();
-                            Empezar();
+                            passs.getText().clear();
+                            startActivity(new Intent(new Intent(MainActivity.this, Status.class)));
+                            finish();
+
                         }else {
                             Toast.makeText(MainActivity.this, "No registrado", Toast.LENGTH_SHORT).show();
                         }
@@ -111,11 +151,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void Empezar(){
         eduser = findViewById(R.id.eduser);
-        pass = findViewById(R.id.edpass);
+        passs = findViewById(R.id.edpass);
         try{
-            if (eduser.getText().toString().isEmpty() && pass.getText().toString().isEmpty() ){
+            if (eduser.getText().toString().isEmpty() && passs.getText().toString().isEmpty() ){
                 eduser.setError(getResources().getString(R.string.camp));
-                pass.setError(getResources().getString(R.string.camp));
+                passs.setError(getResources().getString(R.string.camp));
 
             }else{
 
@@ -134,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         eduser.getText().clear();
-        pass.getText().clear();
+        passs.getText().clear();
     }
 
     public void onBackPressed() {
