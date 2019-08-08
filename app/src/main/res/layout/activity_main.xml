@@ -47,7 +47,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
     <EditText
         android:id="@+id/eduser"
-
         android:hint="@string/user"
         android:gravity="center"
         android:maxLines="1"

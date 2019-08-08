@@ -1,9 +1,11 @@
 package com.liarkat.testwhatatest;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -11,13 +13,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.w3c.dom.Text;
 
 public class Status extends AppCompatActivity {
     private static String TAG = "Servicio";
 
-    Button contador;
+    Button contador, logoutt;
+    FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +32,18 @@ public class Status extends AppCompatActivity {
 
         //inicia el servicio
         startService(new Intent(Status.this, ServicioTimer.class));
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        logoutt = findViewById(R.id.logout);
+
+        logoutt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(Status.this, MainActivity.class));
+            }
+        });
 
     }
 
@@ -78,5 +96,31 @@ public class Status extends AppCompatActivity {
         stopService(new Intent(Status.this, ServicioTimer.class));
         Log.i(TAG, "Termina el servicio");
         super.onDestroy();
+    }
+
+    public void onBackPressed() {
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        dialogo.setTitle(getResources().getString(R.string.sal));
+        dialogo.setIcon(android.R.drawable.ic_dialog_info);
+        dialogo.setMessage(getResources().getString(R.string.conf));
+        dialogo.setCancelable(true);
+        dialogo.setPositiveButton(getResources().getString(R.string.sali), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                firebaseAuth.signOut();
+                startActivity(new Intent(Status.this, MainActivity.class));
+                finish();
+            }
+        });
+
+        dialogo.setNegativeButton(getResources().getString(R.string.canc), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.conti), Toast.LENGTH_LONG).show();
+
+            }
+        });
+        dialogo.show();
+
     }
 }

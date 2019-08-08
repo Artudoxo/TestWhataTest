@@ -27,7 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity {
-    EditText eduser, passs;
+    EditText eduserr, passs;
     String corre, contraseña;
     Button btnempezar, btnrules;
     FirebaseAuth firebaseAuth;
@@ -36,10 +36,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        eduser = findViewById(R.id.eduser);
+        eduserr = findViewById(R.id.eduser);
         passs = findViewById(R.id.edpass);
         firebaseAuth = FirebaseAuth.getInstance();
 
+        //Revisa si el usuario a logueado antes, lo que hace que no tenga que iniciar sesion denuevo en el mismo dispositivo.
         if (firebaseAuth.getCurrentUser() != null){
             startActivity(new Intent(new Intent(MainActivity.this, Status.class)));
             finish();
@@ -51,8 +52,9 @@ public class MainActivity extends AppCompatActivity {
         btnrules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String email = eduser.getText().toString();
+                eduserr = findViewById(R.id.eduser);
+                String email = eduserr.getText().toString();
+                passs = findViewById(R.id.edpass);
                 final String pass = passs.getText().toString();
                 if (TextUtils.isEmpty(email)){
                     Toast.makeText(getApplicationContext(), "Introducir un email", Toast.LENGTH_LONG).show();
@@ -87,14 +89,14 @@ public class MainActivity extends AppCompatActivity {
         btnempezar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                corre = eduser.getText().toString().trim();
+                corre = eduserr.getText().toString().trim();
                 contraseña = passs.getText().toString().trim();
                 firebaseAuth.createUserWithEmailAndPassword(corre,contraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(MainActivity.this, "Registrado", Toast.LENGTH_SHORT).show();
-                            eduser.getText().clear();
+                            eduserr.getText().clear();
                             passs.getText().clear();
                             startActivity(new Intent(new Intent(MainActivity.this, Status.class)));
                             finish();
@@ -150,17 +152,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Empezar(){
-        eduser = findViewById(R.id.eduser);
+        eduserr = findViewById(R.id.eduser);
         passs = findViewById(R.id.edpass);
         try{
-            if (eduser.getText().toString().isEmpty() && passs.getText().toString().isEmpty() ){
-                eduser.setError(getResources().getString(R.string.camp));
+            if (eduserr.getText().toString().isEmpty() && passs.getText().toString().isEmpty() ){
+                eduserr.setError(getResources().getString(R.string.camp));
                 passs.setError(getResources().getString(R.string.camp));
 
             }else{
 
                 Intent empezar = new Intent(this, Status.class);
-                empezar.putExtra("user", eduser.getText().toString());
+                empezar.putExtra("user", eduserr.getText().toString());
                 startActivity(empezar);
             }
         }catch(Exception e){
@@ -173,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        eduser.getText().clear();
+        eduserr.getText().clear();
         passs.getText().clear();
     }
 
