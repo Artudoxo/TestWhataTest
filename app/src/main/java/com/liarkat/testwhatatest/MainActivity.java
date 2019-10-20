@@ -27,7 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity {
-    EditText eduserr, passs;
+    EditText eduser, passs;
     String corre, contraseña;
     Button btnempezar, btnrules;
     FirebaseAuth firebaseAuth;
@@ -36,13 +36,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        eduserr = findViewById(R.id.eduser);
+        eduser = findViewById(R.id.eduser);
         passs = findViewById(R.id.edpass);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        //Revisa si el usuario a logueado antes, lo que hace que no tenga que iniciar sesion denuevo en el mismo dispositivo.
         if (firebaseAuth.getCurrentUser() != null){
-            startActivity(new Intent(new Intent(MainActivity.this, Status.class)));
+            startActivity(new Intent(MainActivity.this, Status.class));
             finish();
         }
         setContentView(R.layout.activity_main);
@@ -52,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
         btnrules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                eduserr = findViewById(R.id.eduser);
-                String email = eduserr.getText().toString();
+                eduser = findViewById(R.id.eduser);
                 passs = findViewById(R.id.edpass);
+                String email = eduser.getText().toString();
                 final String pass = passs.getText().toString();
                 if (TextUtils.isEmpty(email)){
                     Toast.makeText(getApplicationContext(), "Introducir un email", Toast.LENGTH_LONG).show();
@@ -78,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 }else {
                                     Intent intent = new Intent(MainActivity.this, Status.class);
+                                    intent.putExtra("user", eduser.getText().toString());
                                     startActivity(intent);
                                     finish();
                                 }
@@ -89,14 +89,14 @@ public class MainActivity extends AppCompatActivity {
         btnempezar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                corre = eduserr.getText().toString().trim();
+                corre = eduser.getText().toString().trim();
                 contraseña = passs.getText().toString().trim();
                 firebaseAuth.createUserWithEmailAndPassword(corre,contraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(MainActivity.this, "Registrado", Toast.LENGTH_SHORT).show();
-                            eduserr.getText().clear();
+                            eduser.getText().clear();
                             passs.getText().clear();
                             startActivity(new Intent(new Intent(MainActivity.this, Status.class)));
                             finish();
@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "No registrado", Toast.LENGTH_SHORT).show();
                         }
                     }
+
                 });
             }
         });
@@ -152,17 +153,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Empezar(){
-        eduserr = findViewById(R.id.eduser);
+        eduser = findViewById(R.id.eduser);
         passs = findViewById(R.id.edpass);
         try{
-            if (eduserr.getText().toString().isEmpty() && passs.getText().toString().isEmpty() ){
-                eduserr.setError(getResources().getString(R.string.camp));
+            if (eduser.getText().toString().isEmpty() && passs.getText().toString().isEmpty() ){
+                eduser.setError(getResources().getString(R.string.camp));
                 passs.setError(getResources().getString(R.string.camp));
 
             }else{
 
                 Intent empezar = new Intent(this, Status.class);
-                empezar.putExtra("user", eduserr.getText().toString());
+                empezar.putExtra("user", eduser.getText().toString());
                 startActivity(empezar);
             }
         }catch(Exception e){
@@ -175,7 +176,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        eduserr.getText().clear();
+        eduser = findViewById(R.id.eduser);
+        passs = findViewById(R.id.edpass);
+        eduser.getText().clear();
         passs.getText().clear();
     }
 

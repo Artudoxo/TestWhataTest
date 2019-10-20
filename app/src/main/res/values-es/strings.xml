@@ -97,6 +97,14 @@
     <string name="alcance">Ya no se que decirte... la respuesta esta fuera de mi alcance</string>
     <string name="pass">Introduzca su contraseña.</string>
     <string name="login">Entrar</string>
+    <string name="correct">Respuestas Correctas:</string>
+    <string name="logout">Desconectar</string>
+    <string name="maxpoint">Puntos Maximos:</string>
+    <string name="setup">Configurar</string>
+    <string name="wrong">Respuestas Incorrectas:</string>
+    <string name="count">Recompensa</string>
+    <string name="conflogout">¿Seguro quieres salir?</string>
+    <string name="usermiss">Usuario no encontrado</string>
 
 
 </resources>

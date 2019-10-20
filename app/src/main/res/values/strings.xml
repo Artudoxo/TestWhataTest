@@ -96,10 +96,12 @@
     <string name="sa">" 50/5000 Are you sure you want to return to the main menu?"</string>
     <string name="pass">Input your password.</string>
     <string name="login">Login</string>
-    <string name="count">00:00:00</string>
+    <string name="count">Daily Reward</string>
     <string name="correct">Correct Answers:</string>
     <string name="wrong">Wrong Answers:</string>
     <string name="maxpoint">Max Points:</string>
     <string name="setup">Settings</string>
     <string name="logout">Log out</string>
+    <string name="conflogout">Are you really going out?</string>
+    <string name="usermiss">User not found</string>
 </resources>
